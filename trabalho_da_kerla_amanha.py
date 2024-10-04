@@ -13,3 +13,8 @@ df_unionall = pd.merge(df_todas_as_vendas,df_clientes,on="cliente_id")
 
 df_unionall["valor_total"] = df_unionall["quantidade"]*df_unionall["valor_unitario"]
 
+from ydata_profiling import ProfileReport
+
+profile = ProfileReport(df_unionall, title="Profiling Report")
+
+profile.to_file("relatorio_vendas_v5.html")
